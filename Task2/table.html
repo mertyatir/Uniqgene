@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 500px;
+        height: 500px;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 20px;
+        cursor: move;
+        text-align: center;
+        vertical-align: middle;
+      }
+    </style>
+    <script>
+      function allowDrop(event) {
+        event.preventDefault()
+      }
+
+      var sourceRow
+      var sourceCell
+
+      function drag(event) {
+        event.dataTransfer.setData("text", event.target.innerHTML)
+        sourceRow = event.target // Store the reference to the source cell
+        sourceCell = sourceRow.parentNode
+      }
+
+      function drop(event) {
+        event.preventDefault()
+        var data = event.dataTransfer.getData("text")
+
+        var targetRow = event.target
+        var targetCell = targetRow.parentNode
+
+        console.log("event", event)
+
+        var sourceRowIndex = Array.from(sourceRow.parentNode.children).indexOf(
+          sourceRow
+        )
+        var targetRowIndex = Array.from(targetRow.parentNode.children).indexOf(
+          targetRow
+        )
+
+        if (sourceRowIndex == targetRowIndex) {
+          targetRow.parentNode.children[targetRowIndex].innerHTML = data
+          sourceCell.innerHTML = ""
+        }
+
+        sourceCell = null // Reset the sourceCell variable after the drop
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            AA
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person A
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            1 cup/day
+          </p>
+        </td>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            AB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person B
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            2 cup/day
+          </p>
+        </td>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            BB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person C
+          </p>
+
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            5 cup/day
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            AA
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person G
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Never
+          </p>
+        </td>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            AB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person E
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            5 cup/day
+          </p>
+        </td>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            BB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person D
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            3cup/day
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            AB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person D
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Don’t like
+          </p>
+        </td>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            AB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person J
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            15 cup/day
+          </p>
+        </td>
+        <td>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            BB
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            Person K
+          </p>
+          <p
+            draggable="true"
+            ondragstart="drag(event)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
+            8cup/day
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

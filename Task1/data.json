@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "Power Predisposition": 67,
+    "Endurance Predisposition": 33,
+    "Injury Risk": 25,
+    "Oxygen Capacity": 33,
+    "Motor Skills": 0
+  },
+  {
+    "Id": 2,
+    "Power Predisposition": 55,
+    "Endurance Predisposition": 45,
+    "Injury Risk": 50,
+    "Oxygen Capacity": 54,
+    "Motor Skills": 50
+  },
+  {
+    "Id": 3,
+    "Power Predisposition": 48,
+    "Endurance Predisposition": 52,
+    "Injury Risk": 25,
+    "Oxygen Capacity": 42,
+    "Motor Skills": 0
+  },
+  {
+    "Id": 4,
+    "Power Predisposition": 80,
+    "Endurance Predisposition": 20,
+    "Injury Risk": 100,
+    "Oxygen Capacity": 70,
+    "Motor Skills": 75
+  },
+  {
+    "Id": 5,
+    "Power Predisposition": 63,
+    "Endurance Predisposition": 37,
+    "Injury Risk": 0,
+    "Oxygen Capacity": 95,
+    "Motor Skills": 100
+  }
+]

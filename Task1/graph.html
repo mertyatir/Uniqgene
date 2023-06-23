@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Radar Chart</title>
+    <style>
+      .chart-container {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        margin: 20px;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chart-container">
+      <canvas id="radar-chart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Data
+      var data = [
+        {
+          Id: 1,
+          "Power Predisposition": 67,
+          "Endurance Predisposition": 33,
+          "Injury Risk": 25,
+          "Oxygen Capacity": 33,
+          "Motor Skills": 0,
+        },
+        {
+          Id: 2,
+          "Power Predisposition": 55,
+          "Endurance Predisposition": 45,
+          "Injury Risk": 50,
+          "Oxygen Capacity": 54,
+          "Motor Skills": 50,
+        },
+        {
+          Id: 3,
+          "Power Predisposition": 48,
+          "Endurance Predisposition": 52,
+          "Injury Risk": 25,
+          "Oxygen Capacity": 42,
+          "Motor Skills": 0,
+        },
+        {
+          Id: 4,
+          "Power Predisposition": 80,
+          "Endurance Predisposition": 20,
+          "Injury Risk": 100,
+          "Oxygen Capacity": 70,
+          "Motor Skills": 75,
+        },
+        {
+          Id: 5,
+          "Power Predisposition": 63,
+          "Endurance Predisposition": 37,
+          "Injury Risk": 0,
+          "Oxygen Capacity": 95,
+          "Motor Skills": 100,
+        },
+      ]
+
+      // Chart configuration
+      var config = {
+        type: "radar",
+
+        data: {
+          labels: Object.keys(data[0]).slice(1), // Exclude 'Id'
+          datasets: [],
+        },
+
+        options: {
+          scale: {
+            ticks: {
+              beginAtZero: true,
+              max: 100,
+            },
+          },
+
+          elements: {
+            point: {
+              radius: 4,
+              borderWidth: 1,
+              hoverRadius: 5,
+              hoverBorderWidth: 1,
+            },
+          },
+        },
+      }
+
+      // Prepare datasets
+      data.forEach(function (person) {
+        var dataset = {
+          label: "Person " + person.Id,
+          data: Object.values(person).slice(1), // Exclude 'Id'
+          backgroundColor: "rgba(0, 123, 255, 0.4)",
+          borderColor: "rgba(0, 123, 255, 1)",
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(0, 123, 255, 1)",
+          pointBorderColor: "#fff",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(0, 123, 255, 1)",
+        }
+        config.data.datasets.push(dataset)
+      })
+
+      // Create chart
+      var ctx = document.getElementById("radar-chart").getContext("2d")
+      new Chart(ctx, config)
+    </script>
+  </body>
+</html>
